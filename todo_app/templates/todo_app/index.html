@@ -20,7 +20,14 @@
                 <button type="button" class="btn btn-outline-dark btn-block" data-dismiss="modal" onclick="location.href='{% url "list" todolist.id %}'">{{ todolist.title }}</button>
             </li>
         {% empty %}
-            <h4>You have no lists!</h4>
+
+        <hr class="my-4">
+        <h1 class="display-4"><strong>Django Todo App</strong></h1>
+        <p class="lead">
+            Django를 이용한 Todo앱입니다. Add a new list 버튼을 눌러 새로운 Todo List를 생성할 수 있으며 List안에 항목을 추가할 수 있습니다. List 제목을 누르면 상세 항목 페이지가 로드됩니다.
+        </p>
+        <hr class="my-4">
+        <h4>You have no lists!</h4>
         {% endfor %}
         </ul>
     </h3>
