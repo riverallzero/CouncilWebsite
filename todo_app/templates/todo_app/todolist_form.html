@@ -1,22 +1,25 @@
 {% extends "todo_app/base.html" %}
-
 {% block content %}
 
-<h3>{{ title }}</h3>
-<div>
-    <div>
-        <form method="post">
+<hr class="my-4">
+<h3 class="display-4"><a href="/todo/"><i class="fa-solid fa-house-chimney"></i></a> <strong>Todo : {{ title }}</strong></h3>
+<hr class="my-4">
+
+<div class="card">
+  <h5 class="card-header">All my lists</h5>
+  <div class="card-body">
+      <form method="post">
             {% csrf_token %}
             {{ form.as_p }}
             <input
                 value="Save"
                 type="submit">
-            <input
-                value="Cancel"
-                type="button"
-                onclick="location.href='{% url "index" %}';">
-        </form>
-    </div>
+            <div></div>
+        </form><br>
+    <p class="lead">
+        <button type="button" class="btn btn-primary btn-md btn-block" data-dismiss="modal" onclick="location.href='{% url "index" %}';">Cancel</button>
+    </p>
+  </div>
 </div>
 
 {% endblock %}
