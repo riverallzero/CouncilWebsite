@@ -9,12 +9,11 @@
     <table>
         {{ form.as_table }}
     </table>
-    <input value="Submit" type="submit">
+    <br>
+    <div class="btn-group btn-group-md" role="group" aria-label="Basic example">
+        <input value="Submit" type="submit" class="btn btn-primary btn-lg">
+        <button type="button" class="btn btn-dark btn-lg" onclick="location.href='{% url "list" todo_list.id %}'">Cancel</button>
+    </div>
 </form><br>
-<div class="btn-group btn-group-md" role="group" aria-label="Basic example">
-    <button type="button" class="btn btn-primary btn-md" onclick="location.href='{% url "list" todo_list.id %}'">Cancel</button>
-    {% if object %}
-        <button type="button" class="btn btn-danger btn-md" onclick="location.href='{% url "list-delete" todo_list.id %}'">Delete this list</button>
-    {% endif %}
-</div>
+
 {% endblock %}

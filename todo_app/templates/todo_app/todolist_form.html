@@ -6,19 +6,17 @@
 <hr class="my-4">
 
 <div class="card">
-  <h5 class="card-header">All my lists</h5>
+  <h5 class="card-header">Add List title</h5>
   <div class="card-body">
       <form method="post">
             {% csrf_token %}
             {{ form.as_p }}
-            <input
-                value="Save"
-                type="submit">
-            <div></div>
+            <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
+                <input value="Save" type="submit" class="btn btn-danger btn-md">
+                <button type="button" class="btn btn-dark btn-md" data-dismiss="modal" onclick="location.href='{% url "index" %}';">Cancel</button>
+            </div>
+                <div></div>
         </form><br>
-    <p class="lead">
-        <button type="button" class="btn btn-primary btn-md btn-block" data-dismiss="modal" onclick="location.href='{% url "index" %}';">Cancel</button>
-    </p>
   </div>
 </div>
 

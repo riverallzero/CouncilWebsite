@@ -6,11 +6,14 @@
 <hr class="my-4">
 
 <h3>Are you sure you want to delete the list <i>{{ object.title }}</i> ?</h3>
-
+<br>
 <form method="POST">
     {% csrf_token %}
-    <input value="Yes, delete." type="submit">
+
+    <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
+        <input value="Yes, delete." type="submit" class="btn btn-danger btn-mg">
+        <button type="button" class="btn btn-dark btn-md btn-block" onclick="location.href='{% url "index" %}';">Cancel</button>
+    </div>
 </form><br>
-<button type="button" class="btn btn-primary btn-md btn-block" onclick="location.href='{% url "index" %}';">Cancel</button>
 
 {% endblock %}
