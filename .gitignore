@@ -7,3 +7,5 @@ blog/migrations/__pycache__
 single_pages/migrations/__pycache__
 blog/__pycache__
 db.sqlite3
+smartfarm/__pycache__
+smartfarm/migrations

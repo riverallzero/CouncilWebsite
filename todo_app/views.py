@@ -12,7 +12,7 @@
 # # Create your views here.
 # class ListListView(ListView):
 #     model = ToDoList
-#     template_name = "todo_app/index.html"
+#     template_name = "todo_app/base.html"
 #
 #
 # class ItemListView(ListView):

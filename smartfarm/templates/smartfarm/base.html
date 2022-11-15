@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.101.0">
+    <title>전북대학교 스마트팜학과학생회</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'smartfarm/images/학과로고(배경x).png' %}" />
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.6/examples/blog/">
+
+    <!-- Calendar -->
+    <!-- jquery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- fullcalendar CDN -->
+    <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/main.min.css' rel='stylesheet'/>
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/main.min.js'></script>
+    <!-- fullcalendar 언어 CDN -->
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/locales-all.min.js'></script>
+    <!-- JavaScript -->
+    <script src="{% static 'smartfarm/script.js' %}"></script>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+          integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <!-- Custom CSS -->
+    <link href="{% static 'smartfarm/style.css' %}" rel="stylesheet">
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/869ce555c2.js" crossorigin="anonymous"></script>
+    <!-- Favicons -->
+</head>
+
+<body>
+<div class="container">
+    <br>
+    <div style="text-align: center;">
+        <a class="blog-header-logo text-dark" href=""><img src="{% static 'smartfarm/images/logo.jpg' %}" width="400px"></a>
+    </div>
+    <div class="nav-scroller py-1 mb-2">
+        <nav class="nav d-flex justify-content-between">
+            <a class="p-1 text-muted" href="#">공지사항</a>
+            <a class="p-1 text-muted" href="#">일정참여</a>
+            <a class="p-1 text-muted" href="#">학과제휴</a>
+            <a class="p-1 text-muted" href="#">과방관리</a>
+            <a class="p-1 text-muted" href="#">학생회조직</a>
+            <a class="p-1 text-muted" href="#">학과위치</a>
+            <a class="p-1 text-muted" href="#">문의사항</a>
+        </nav>
+    </div>
+
+    <div class="jumbotron p-4 p-md-4 text-white rounded" style="background-color: #6073A0">
+        <div class="col-md-12 px-0">
+            <p class="lead my-3 font-weight-bold">안녕하시렵니까 전북대학교 대학본부 스마트팜학과 제 1회 기대 학생회입니다.</p>
+        </div>
+    </div>
+
+    {% block contents %}
+    {% endblock %}
+
+    <hr>
+    <!-- Footer -->
+    <div class="text-dark rounded">
+        <div class="row">
+            <p class="col-6 text-left">
+                <a href="https://sfarm.jbnu.ac.kr/jsf/index.do" style="font-weight: bold">전북대학교 스마트팜학과 </a>
+                | <a href="https://www.instagram.com/jbnu_smartfarm/">
+                <i class="fa-brands fa-instagram"></i> jbnu_smartfarm</a> |
+                <a href="https://pf.kakao.com/_jsWPb"> @jbnu-smartfarm</a> |
+            </p>
+            <p class="col-6 text-right">
+                Made by TEAM.KCL
+            </p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

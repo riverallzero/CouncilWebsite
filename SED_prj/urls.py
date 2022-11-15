@@ -23,5 +23,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('single_pages.urls')),
     path('todo/', include('todo_app.urls')),
+    path('smartfarm/', include('smartfarm.urls'))
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
