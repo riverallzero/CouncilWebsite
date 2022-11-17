@@ -9,3 +9,11 @@ blog/__pycache__
 db.sqlite3
 smartfarm/__pycache__
 smartfarm/migrations
+__pycache__
+council/migrations
+location/migrations
+notice/migrations
+partnership/migrations
+qna/migrations
+room/migrations
+survey/migrations

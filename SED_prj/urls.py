@@ -23,6 +23,13 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('single_pages.urls')),
     path('todo/', include('todo_app.urls')),
-    path('smartfarm/', include('smartfarm.urls'))
+    path('smartfarm/', include('smartfarm.urls')),
+    path('council/', include('council.urls')),
+    path('location/', include('location.urls')),
+    path('notice/', include('notice.urls')),
+    path('partnership/', include('partnership.urls')),
+    path('qna/', include('qna.urls')),
+    path('room/', include('room.urls')),
+    path('survey/', include('survey.urls'))
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

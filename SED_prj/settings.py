@@ -44,7 +44,14 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'single_pages',
     'todo_app',
-    'smartfarm'
+    'smartfarm',
+    'council',
+    'location',
+    'notice',
+    'partnership',
+    'qna',
+    'room',
+    'survey',
 ]
 
 MIDDLEWARE = [
