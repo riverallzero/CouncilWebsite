@@ -1,11 +1,49 @@
 {#--------------------------------------------------------#}
 {#-----------------------기본 홈페이지-----------------------#}
 {#--------------------------------------------------------#}
-
 {% extends "smartfarm/base.html" %}
+{% block description %}
+    <p class="lead my-3 font-weight-bold">| 일정참여 | 과행사 참여 설문조사</p>
+{% endblock %}
+
 {% block contents %}
+    {% load static %}
+    <link href="{% static 'survey/style.css' %}" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
 
+    {#    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeNQT65_ZMPrLr-50WtP0ZcLRIZp3RnKXPr49raX_oB2nSDgg/viewform?embedded=true"#}
+    {#            width="640" height="1615" frameborder="0" marginheight="0" marginwidth="0">로드 중…#}
+    {#    </iframe>#}
 
-<h1>행사참여설문조사</h1>
+    <div class="container">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-xl-1">
+            <a class="col" href="#">
+                <div class="card radius-10 border-start border-0 border-3 border-info">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center">
+                            <div>
+                                <p class="mb-0 text-secondary">학생회 모집</p>
+                                <h4 class="my-1 text-info">제 1대 기대학생회 국원모집</h4>
+                                <p class="mb-0 font-13">2022.03.10-03.11</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a class="col" href="#">
+                <div class="card radius-10 border-start border-0 border-3 border-danger">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center">
+                            <div>
+                                <p class="mb-0 text-secondary">MT</p>
+                                <h4 class="my-1 text-danger">2022 종강 기념 MT</h4>
+                                <p class="mb-0 font-13">2022.12.21-22</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
 
+        </div>
+    </div>
 {% endblock %}
