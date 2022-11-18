@@ -1,0 +1,27 @@
+{#--------------------------------------------------------#}
+{#-----------------------설문지 디테일-----------------------#}
+{#--------------------------------------------------------#}
+{% extends "smartfarm/base.html" %}
+
+{% block contents %}
+    <div class="row">
+        <div class="col-5">
+            <!-- Title -->
+            <h2 class="mt-4">{{ survey.title }}</h2>
+            <!-- Date/Time -->
+            <p>{{ survey.created_at }}</p>
+            <hr>
+            <!-- Post Content -->
+            <p>{{ survey.describe }}</p>
+            <p>※ 오른쪽 구글폼을 작성해주시길바랍니다. ※</p>
+        </div>
+
+        <div class="col-7">
+            <iframe src="{{ survey.link }}"
+                    width="640" height="1615" frameborder="0" marginheight="0" marginwidth="0">로드 중…
+            </iframe>
+        </div>
+
+    </div>
+
+{% endblock %}
