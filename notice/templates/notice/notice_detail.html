@@ -1,0 +1,14 @@
+{% extends "smartfarm/base.html" %}
+{% block contents %}
+
+<div class="card">
+  <div class="card-header">
+      {{ notice.created_at }}
+  </div>
+  <div class="card-body">
+    <h3 class="card-title">{{ notice.title }}</h3>
+    <p class="card-text">{{ notice.describe }}</p>
+  </div>
+</div>
+
+{% endblock %}

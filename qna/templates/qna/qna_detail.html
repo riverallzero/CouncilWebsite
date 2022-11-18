@@ -1,0 +1,21 @@
+{% extends "smartfarm/base.html" %}
+{% block contents %}
+
+    <div class="card">
+        <div class="card-header">
+            {{ qna.author }}
+        </div>
+        <div class="card-body">
+            <h3 class="card-title">{{ qna.title }}</h3>
+            <p class="card-text">{{ qna.describe }}</p>
+            <small>{{ qna.created_at }}</small>
+        </div>
+    </div>
+    <hr>
+    <div class="card">
+        <div class="card-body">
+             <p>{{ qna.command }}</p>
+        </div>
+    </div>
+
+{% endblock %}

@@ -9,7 +9,26 @@
 
 {% block contents %}
 
-
-<h1>공지사항</h1>
-
+    {% if notices.exists %}
+        {% for n in notices.all %}
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>번호</th>
+                    <th>제목</th>
+                    <th>날짜</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>{{ n.pk }}</td>
+                    <td onclick="location.href='{{ n.get_absolute_url }}'" id='post-{{ n.pk }}'>{{ n.title }}</td>
+                    <td>{{ n.created_at }}</td>
+                </tr>
+                </tbody>
+            </table>
+        {% endfor %}
+    {% else %}
+        <h3>공지사항이 없습니다.</h3>
+    {% endif %}
 {% endblock %}

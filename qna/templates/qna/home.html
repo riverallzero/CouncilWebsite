@@ -10,6 +10,29 @@
 {% block contents %}
 
 
-<h1>문의사항</h1>
-
+    {% if qnas.exists %}
+        {% for q in qnas.all %}
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>번호</th>
+                    <th>제목</th>
+                    <th>작성자</th>
+                    <th>날짜</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>{{ q.pk }}</td>
+                    <td onclick="location.href='{{ q.get_absolute_url }}'" id='post-{{ q.pk }}'>{{ q.title }}</td>
+                    <td>{{ q.author }}</td>
+                    <td>{{ q.created_at }}</td>
+                </tr>
+                </tbody>
+            </table>
+        {% endfor %}
+    {% else %}
+        <h3>문의사항이 없습니다.</h3>
+    {% endif %}
+    <button type="button" class="btn btn-success text-white">문의하기</button>
 {% endblock %}
