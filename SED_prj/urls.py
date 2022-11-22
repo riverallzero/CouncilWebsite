@@ -20,7 +20,6 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
     path('', include('single_pages.urls')),
     path('todo/', include('todo_app.urls')),
     path('smartfarm/', include('smartfarm.urls')),
@@ -30,6 +29,7 @@ urlpatterns = [
     path('partnership/', include('partnership.urls')),
     path('qna/', include('qna.urls')),
     path('room/', include('room.urls')),
-    path('survey/', include('survey.urls'))
+    path('survey/', include('survey.urls')),
+    path('admin/', admin.site.urls),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
