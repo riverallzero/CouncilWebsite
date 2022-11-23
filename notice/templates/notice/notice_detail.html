@@ -1,9 +1,12 @@
 {% extends "smartfarm/base.html" %}
-{% block contents %}
+{% block description %}
+    <p class="lead my-3 font-weight-bold">| 공지사항 | 학과 공지사항</p>
+{% endblock %}
 
+{% block contents %}
 <div class="card">
   <div class="card-header">
-      {{ notice.created_at }}
+      {{ notice.created_at|date:"Y년 m월 d일 | H시 i분" }}
   </div>
   <div class="card-body">
     <h3 class="card-title">{{ notice.title }}</h3>

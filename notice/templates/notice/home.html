@@ -23,7 +23,7 @@
                 <tr>
                     <td>{{ n.pk }}</td>
                     <td onclick="location.href='{{ n.get_absolute_url }}'" id='post-{{ n.pk }}'>{{ n.title }}</td>
-                    <td>{{ n.created_at }}</td>
+                    <td>{{ n.created_at|date:"Y년 m월 d일 | H시 i분" }}</td>
                 </tr>
                 </tbody>
             </table>

@@ -9,7 +9,7 @@
             <!-- Title -->
             <h2 class="mt-4">{{ survey.title }}</h2>
             <!-- Date/Time -->
-            <p>{{ survey.created_at }}</p>
+            <p>{{ survey.created_at|date:"Y년 m월 d일 | H시 i분" }}</p>
             <hr>
             <!-- Post Content -->
             <p>{{ survey.describe }}</p>

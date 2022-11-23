@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'qna',
     'room',
     'survey',
+    'common',
 ]
 
 MIDDLEWARE = [
@@ -140,3 +141,6 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 INTERNAL_IPS = ('127.0.0.1','::1', '0.0.0.0')
+
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'

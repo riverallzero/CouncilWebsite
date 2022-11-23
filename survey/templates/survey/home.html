@@ -22,7 +22,7 @@
                                     <div>
                                         <p class="mb-0 text-secondary">{{ s.subject }}</p>
                                         <h4 class="my-1 text">{{ s.title }}</h4>
-                                        <p class="mb-0 font-13">{{ s.created_at }}</p>
+                                        <p class="mb-0 font-13">{{ s.created_at|date:"Y년 m월 d일 | H시 i분" }}</p>
                                     </div>
                                 </div>
                             </div>

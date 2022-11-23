@@ -21,7 +21,7 @@
             <td>
                 <a href="{% url 'qna:detail' question.id %}">{{ question.subject }}</a>
             </td>
-            <td>{{ question.create_date }}</td>
+            <td>{{ question.create_date|date:"Y년 m월 d일 | H시 i분"  }}</td>
         </tr>
         {% endfor %}
         {% else %}

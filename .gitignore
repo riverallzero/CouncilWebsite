@@ -17,3 +17,4 @@ partnership/migrations
 qna/migrations
 room/migrations
 survey/migrations
+common/migrations
