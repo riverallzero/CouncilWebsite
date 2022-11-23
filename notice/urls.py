@@ -9,7 +9,7 @@ app_name = 'notice'
 urlpatterns = [
     path('', views.index, name='index'),
     path('<int:question_id>/', views.detail, name='detail'),
-    path('notice/create/', views.question_create, name='question_create'),
+    path('create/', views.question_create, name='question_create'),
 ]
 
 if settings.DEBUG:
