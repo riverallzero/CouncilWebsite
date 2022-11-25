@@ -29,20 +29,3 @@ def question_create(request):
         form = QuestionForm()
     context = {'form': form}
     return render(request, 'notice/question_form.html', context)
-# class NoticeList(ListView):
-#     model = Notice
-#     ordering = "-pk"
-#
-#     def get_context_data(self, **kwargs):
-#         context = super(NoticeList, self).get_context_data()
-#
-#         return context
-#
-#
-# class NoticeDetail(DetailView):
-#     model = Notice
-#
-#     def get_context_data(self, **kwargs):
-#         context = super(NoticeDetail, self).get_context_data()
-#
-#         return context

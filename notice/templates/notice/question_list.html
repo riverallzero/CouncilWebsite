@@ -4,33 +4,35 @@
 {% endblock %}
 
 {% block contents %}
-<div class="container my-3">
-    <table class="table">
-        <thead>
-        <tr class="table-dark text-white">
-            <th>번호</th>
-            <th>제목</th>
-            <th>작성일시</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% if question_list.exists %}
-        {% for question in question_list.all %}
-        <tr>
-            <td>{{ forloop.counter }}</td>
-            <td>
-                <a href="{% url 'notice:detail' question.id %}">{{ question.subject }}</a>
-            </td>
-            <td>{{ question.create_date|date:"Y년 m월 d일 | H시 i분"  }}</td>
-        </tr>
-        {% endfor %}
-        {% else %}
-        <tr>
-            <td colspan="3">공지가 없습니다.</td>
-        </tr>
+    <div class="container my-3">
+        <table class="table">
+            <thead>
+            <tr class="table-dark text-white">
+                <th>번호</th>
+                <th>제목</th>
+                <th>작성일시</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% if question_list.exists %}
+                {% for question in question_list.all %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>
+                            <a href="{% url 'notice:detail' question.id %}">{{ question.subject }}</a>
+                        </td>
+                        <td>{{ question.create_date|date:"Y년 m월 d일 | H시 i분" }}</td>
+                    </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td colspan="3">공지가 없습니다.</td>
+                </tr>
+            {% endif %}
+            </tbody>
+        </table>
+        {% if user.is_active %}
+            <a href="{% url 'notice:question_create' %}" class="btn btn-primary text-white">공지등록</a>
         {% endif %}
-        </tbody>
-    </table>
-    <a href="{% url 'notice:question_create' %}" class="btn btn-primary text-white">공지등록</a>
-</div>
+    </div>
 {% endblock %}
