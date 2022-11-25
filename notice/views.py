@@ -6,6 +6,7 @@ from notice.models import Question
 
 from django.core.paginator import Paginator
 
+from django.views.generic import ListView
 
 def index(request):
     question_list = Question.objects.order_by('-create_date')

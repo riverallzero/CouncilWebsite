@@ -33,6 +33,7 @@
             {% endif %}
             </tbody>
         </table>
+
         {% if user.is_active %}
             <a href="{% url 'notice:question_create' %}" class="btn btn-primary text-white">공지등록</a>
         {% endif %}
