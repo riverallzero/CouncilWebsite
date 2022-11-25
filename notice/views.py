@@ -4,6 +4,8 @@ from django.utils import timezone
 from notice.forms import QuestionForm
 from notice.models import Question
 
+from django.core.paginator import Paginator
+
 
 def index(request):
     question_list = Question.objects.order_by('-create_date')
@@ -16,7 +18,7 @@ def detail(request, question_id):
     context = {'question': question}
     return render(request, 'notice/question_detail.html', context)
 
-# Create your views here.
+
 def question_create(request):
     if request.method == 'POST':
         form = QuestionForm(request.POST)

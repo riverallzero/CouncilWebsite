@@ -1,34 +1,40 @@
-{#--------------------------------------------------------#}
-{#-----------------------기본 홈페이지-----------------------#}
-{#--------------------------------------------------------#}
 {% extends "smartfarm/base.html" %}
 {% block description %}
     <p class="lead my-3 font-weight-bold">| 일정참여 | 과행사 참여 설문조사</p>
 {% endblock %}
 
 {% block contents %}
-    {% load static %}
-    <link href="{% static 'survey/style.css' %}" rel="stylesheet">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
-
     <div class="container">
         <div class="row row-cols-1 row-cols-md-2 row-cols-xl-1">
             {% if surveys.exists %}
-                {% for s in surveys.all %}
-                    <a class="col" href="{{ s.get_absolute_url }}" id="post-{{ s.pk }}">
-                        <div class="card radius-10 border-start border-0 border-3 border-warning">
-                            <div class="card-body">
-                                <div class="d-flex align-items-center">
-                                    <div>
-                                        <p class="mb-0 text-secondary">{{ s.subject }}</p>
-                                        <h4 class="my-1 text">{{ s.title }}</h4>
-                                        <p class="mb-0 font-13">{{ s.created_at|date:"Y년 m월 d일 | H시 i분" }}</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                {% endfor %}
+                <table class="table">
+                    <thead class="thead-dark">
+                    <tr>
+                        <th class="col-2" scope="col">키워드</th>
+                        <th class="col-7" scope="col">제목</th>
+                        <th class="col-3" scope="col">작성일</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% if surveys.exists %}
+                        {% for s in surveys.all %}
+                            <tr>
+                                <td>{{ s.subject }}</td>
+                                <td>
+                                    <a href="{{ s.get_absolute_url }}" id="post-{{ s.pk }}">{{ s.title }}</a>
+                                </td>
+                                <td>{{ s.created_at|date:"Y년 m월 d일 | H시 i분" }}</td>
+                            </tr>
+                        {% endfor %}
+                    {% else %}
+                        <tr>
+                            <td></td>
+                            <td>설문이 없습니다.</td>
+                            <td></td>
+                        </tr>
+                    {% endif %}
+                    </tbody>
+                </table>
             {% else %}
                 <h3>설문이 없습니다.</h3>
             {% endif %}
