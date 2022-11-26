@@ -10,17 +10,16 @@
     <div class="row">
         <div class="col-5">
             <!-- Title -->
-            <h2 class="mt-4">{{ survey.title }}</h2>
+            <h2 class="mt-4">{{ question.subject }}</h2>
             <!-- Date/Time -->
-            <p>{{ survey.created_at|date:"Y년 m월 d일 | H시 i분" }}</p>
+            <p>{{ question.create_date|date:"Y년 m월 d일 | H시 i분" }}</p>
             <hr>
             <!-- Post Content -->
-            <p>{{ survey.describe }}</p>
             <p>※ 오른쪽 구글폼을 작성해주시길바랍니다. ※</p>
         </div>
 
         <div class="col-7">
-            <iframe src="{{ survey.link }}"
+            <iframe src="{{ question.content }}"
                     width="640" height="1615" frameborder="0" marginheight="0" marginwidth="0">로드 중…
             </iframe>
         </div>
