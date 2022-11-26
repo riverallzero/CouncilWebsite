@@ -10,7 +10,7 @@ from django.core.paginator import Paginator
 def index(request):
     page = request.GET.get('page', '1')
     question_list = Question.objects.order_by('-create_date')
-    paginator = Paginator(question_list, 5)
+    paginator = Paginator(question_list, 10)
     page_obj = paginator.get_page(page)
     context = {'question_list': page_obj}
     return render(request, 'notice/question_list.html', context)
