@@ -68,18 +68,18 @@
     </div>
 </nav>
 
+<br><br><br>
 
-<div class="jumbotron p-4 p-md-4 text-white rounded"
-     style="background-color: #6073A0; position: fixed; top: 80px; right: 6%; left: 6%; z-index: 2">
-    <div class="col-md-12 px-0">
-        {% block description %}{% endblock %}
-    </div>
+<div class="jumbotron jumbotron-fluid p-4">
+  <div class="container">
+    <h1 class="display-4">Fluid jumbotron</h1>
+    <p class="lead">{% block description %}{% endblock %}</p>
+  </div>
 </div>
 
 <div class="container" style="position: relative; top: 200px;">
     {% block contents %}
     {% endblock %}
-</div>
 </div>
 
 </body>
