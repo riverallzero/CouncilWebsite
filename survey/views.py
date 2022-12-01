@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 
@@ -5,6 +6,26 @@ from .forms import QuestionForm
 from .models import Question
 
 from django.core.paginator import Paginator
+
+
+def question_delete(request, question_id):
+    question = get_object_or_404(Question, pk=question_id)
+    question.delete()
+    return redirect('survey:index')
+
+
+def question_modify(request, question_id):
+    question = get_object_or_404(Question, pk=question_id)
+    if request.method == "POST":
+        form = QuestionForm(request.POST, instance=question)
+        if form.is_valid():
+            question = form.save(commit=False)
+            question.save()
+            return redirect('survey:detail', question_id=question.id)
+    else:
+        form = QuestionForm(instance=question)
+    context = {'form': form}
+    return render(request, 'survey/question_form.html', context)
 
 
 def index(request):

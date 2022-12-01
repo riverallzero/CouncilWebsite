@@ -7,6 +7,26 @@ from .models import Question
 from django.core.paginator import Paginator
 
 
+def question_delete(request, question_id):
+    question = get_object_or_404(Question, pk=question_id)
+    question.delete()
+    return redirect('notice:index')
+
+
+def question_modify(request, question_id):
+    question = get_object_or_404(Question, pk=question_id)
+    if request.method == "POST":
+        form = QuestionForm(request.POST, instance=question)
+        if form.is_valid():
+            question = form.save(commit=False)
+            question.save()
+            return redirect('notice:detail', question_id=question.id)
+    else:
+        form = QuestionForm(instance=question)
+    context = {'form': form}
+    return render(request, 'notice/question_form.html', context)
+
+
 def index(request):
     page = request.GET.get('page', '1')
     question_list = Question.objects.order_by('-create_date')

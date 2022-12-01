@@ -4,21 +4,20 @@
 {% endblock %}
 
 {% block contents %}
-<div class="container">
     <h5 class="my-3 border-bottom pb-2">설문등록</h5>
     <form method="post" class="post-form my-3">
         {% csrf_token %}
         {% if form.errors %}
-        <div class="alert alert-danger" role="alert">
-            {% for field in form %}
-            {% if field.errors %}
-            <div>
-                <strong>{{ field.label }}</strong>
-                {{ field.errors }}
+            <div class="alert alert-danger" role="alert">
+                {% for field in form %}
+                    {% if field.errors %}
+                        <div>
+                            <strong>{{ field.label }}</strong>
+                            {{ field.errors }}
+                        </div>
+                    {% endif %}
+                {% endfor %}
             </div>
-            {% endif %}
-            {% endfor %}
-        </div>
         {% endif %}
         <div class="mb-3">
             <label for="subject" class="form-label">제목</label>
@@ -32,5 +31,4 @@
         </div>
         <button type="submit" class="btn btn-primary">저장하기</button>
     </form>
-</div>
 {% endblock %}
