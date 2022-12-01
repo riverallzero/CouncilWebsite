@@ -7,11 +7,9 @@
 
 ## 초기 실행 방법
 1. pip install -r requirements.txt (필요한 라이브러리 설치)
-2. pip install --upgrade pip (업그레이드)
-3. python manage.py migrate 
-4. python manage.py createsuperuser 
-5. python manage.py migrate --run-syncdb 
-6. python manage.py runserver
+2. python manage.py migrate --run-syncdb 
+3. python manage.py createsuperuser
+4. python manage.py runserver
 
 
 ### 개인 작업 시
