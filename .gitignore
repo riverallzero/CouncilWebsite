@@ -18,3 +18,4 @@ qna/migrations
 room/migrations
 survey/migrations
 common/migrations
+scheduler/migrations

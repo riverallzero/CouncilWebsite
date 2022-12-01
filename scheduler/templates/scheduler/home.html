@@ -1,0 +1,39 @@
+{#--------------------------------------------------------#}
+{#-----------------------기본 홈페이지-----------------------#}
+{#--------------------------------------------------------#}
+
+{% extends "smartfarm/base.html" %}
+{% load static %}
+{% block contents %}
+
+    <link href="{% static 'smartfarm/main.css' %}" rel='stylesheet'/>
+    <script src="{% static 'smartfarm/main.js' %}"></script>
+
+    <script>
+
+        document.addEventListener('DOMContentLoaded', function () {
+            var calendarEl = document.getElementById('calendar');
+
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialDate: new Date(),
+                editable: false,
+                selectable: true,
+                businessHours: true,
+                dayMaxEvents: true,
+                events: [
+                    {
+                        title: 'Conference',
+                        start: '2022-12-11',
+                        end: '2022-12-13'
+                    },
+                ]
+            });
+
+            calendar.render();
+        });
+
+    </script>
+
+    <div id='calendar'></div>
+
+{% endblock %}
