@@ -5,12 +5,11 @@
 {% extends "smartfarm/base.html" %}
 {% load static %}
 {% block contents %}
-
-    <link href="{% static 'smartfarm/main.css' %}" rel='stylesheet'/>
-    <script src="{% static 'smartfarm/main.js' %}"></script>
+    <link href="{% static 'scheduler/main.css' %}" rel='stylesheet'/>
+    <script src="{% static 'scheduler/main.js' %}"></script>
+    <script src="{% static 'scheduler/ko.js' %}"></script>
 
     <script>
-
         document.addEventListener('DOMContentLoaded', function () {
             var calendarEl = document.getElementById('calendar');
 
@@ -20,13 +19,20 @@
                 selectable: true,
                 businessHours: true,
                 dayMaxEvents: true,
-                events: [
+                locale: 'ko',
+                googleCalendarApiKey: 'AIzaSyCGaBzFKZQ8UqnJA8_flAh7AUTnLpACpac',
+                eventSources: [
                     {
-                        title: 'Conference',
-                        start: '2022-12-11',
-                        end: '2022-12-13'
+                        googleCalendarId: 'smartfarm.jbnu@gmail.com',
+                        color: 'steelblue',
+                        textColor: 'white'
                     },
-                ]
+                    {
+                        googleCalendarId: 'ko.south_korea#holiday@group.v.calendar.google.com',
+                        color: 'coral',
+                        textColor: 'white'
+                    }
+                ],
             });
 
             calendar.render();
@@ -34,6 +40,8 @@
 
     </script>
 
-    <div id='calendar'></div>
+    <div id="calendarBox">
+        <div id="calendar"></div>
+    </div>
 
 {% endblock %}
