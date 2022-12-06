@@ -34,6 +34,7 @@ urlpatterns = [
     path('survey/', include('survey.urls')),
     path('admin/', admin.site.urls),
     path('common/', include('common.urls')),
+    path('scheduler/', include('scheduler.urls')),
     path('', include('smartfarm.urls'))
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

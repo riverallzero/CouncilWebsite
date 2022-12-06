@@ -1,0 +1,47 @@
+{#--------------------------------------------------------#}
+{#-----------------------기본 홈페이지-----------------------#}
+{#--------------------------------------------------------#}
+
+{% extends "smartfarm/base.html" %}
+{% load static %}
+{% block contents %}
+    <link href="{% static 'scheduler/main.css' %}" rel='stylesheet'/>
+    <script src="{% static 'scheduler/main.js' %}"></script>
+    <script src="{% static 'scheduler/ko.js' %}"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var calendarEl = document.getElementById('calendar');
+
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialDate: new Date(),
+                editable: false,
+                selectable: true,
+                businessHours: true,
+                dayMaxEvents: true,
+                locale: 'ko',
+                googleCalendarApiKey: 'AIzaSyCGaBzFKZQ8UqnJA8_flAh7AUTnLpACpac',
+                eventSources: [
+                    {
+                        googleCalendarId: 'smartfarm.jbnu@gmail.com',
+                        color: 'steelblue',
+                        textColor: 'white'
+                    },
+                    {
+                        googleCalendarId: 'ko.south_korea#holiday@group.v.calendar.google.com',
+                        color: 'coral',
+                        textColor: 'white'
+                    }
+                ],
+            });
+
+            calendar.render();
+        });
+
+    </script>
+
+    <div id="calendarBox">
+        <div id="calendar"></div>
+    </div>
+
+{% endblock %}

@@ -8,7 +8,7 @@
 
 {% block contents %}
     <div class="row">
-        <div class="col-5">
+        <div class="col-sm-6">
             <!-- Title -->
             <h2 class="mt-4">{{ question.subject }}</h2>
             <!-- Date/Time -->
@@ -16,14 +16,19 @@
             <hr>
             <!-- Post Content -->
             <p>※ 오른쪽 구글폼을 작성해주시길바랍니다. ※</p>
+            {% if user.is_active %}
+                <div class="my-3">
+                    <a href="{% url 'survey:question_modify' question.id %}"
+                       class="btn btn-success">수정</a>
+                    <a href="{% url 'survey:question_delete' question.id %}"
+                       class="delete btn btn-danger">삭제</a>
+                </div>
+            {% endif %}
         </div>
-
-        <div class="col-7">
+        <div class="col-sm-6">
             <iframe src="{{ question.content }}"
-                    width="640" height="1615" frameborder="0" marginheight="0" marginwidth="0">로드 중…
+                    width="100%" height="300%" frameborder="0" marginheight="0" marginwidth="0">로드 중…
             </iframe>
         </div>
-
     </div>
-
 {% endblock %}

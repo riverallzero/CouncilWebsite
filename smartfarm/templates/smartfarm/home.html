@@ -5,7 +5,7 @@
 {% extends "smartfarm/base.html" %}
 {% load static %}
 {% block contents %}
-    <section class="p-5 text-white" style="background-color: darkslateblue;">
+    <section class="p-5 text-white" style="background-color: darkslateblue">
         <div class="container px-4 px-lg-5">
             <div class="small mb-1">전북대학교 스마트팜학과</div>
             <h1 class="display-5 fw-bolder">제1대 기대학생회</h1>
@@ -15,58 +15,57 @@
         </div>
     </section>
 
-    <section class="py-5" id="features">
-        <div class="container px-5 my-5">
-            <div class="row">
-                <h2 class="fw-bolder mb-0">학생회 소셜미디어</h2>
-            </div>
-            <br/>
-            <div class="row gx-3">
-                <div class="col-lg-3">
-                    <div class="col mb-2 h-100">
-                        <div class="feature bg-gradient text-white rounded-3 mb-3">
-                            <a href="https://sfarm.jbnu.ac.kr/jsf/index.do">
-                                <img src="{% static 'smartfarm/images/jbnu.png' %}" width="20%">
-                            </a>
-                        </div>
-                        <h2 class="h5">학과홈페이지</h2>
-                        <p class="mb-0">전북대학교 스마트팜학과 홈페이지</p>
-                    </div>
+    <br/><br/>
+
+    <div class="row">
+        <h2 class="fw-bolder mb-0">학생회 소셜미디어</h2>
+    </div>
+    <br/>
+    <div class="row gx-3">
+        <div class="col-lg-3">
+            <div class="col mb-2 h-100">
+                <div class="feature bg-gradient text-white rounded-3 mb-3">
+                    <a href="https://sfarm.jbnu.ac.kr/jsf/index.do">
+                        <img src="{% static 'smartfarm/images/jbnu.png' %}" width="20%">
+                    </a>
                 </div>
-                <div class="col-lg-3">
-                    <div class="col mb-2 h-100">
-                        <div class="feature bg-gradient text-white rounded-3 mb-3">
-                            <a href="https://www.instagram.com/jbnu_smartfarm/">
-                                <img src="{% static 'smartfarm/images/instagram.png' %}" width="20%">
-                            </a>
-                        </div>
-                        <h2 class="h5">인스타그램</h2>
-                        <p class="mb-0">홍보부 관리 학과 인스타그램</p>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="col mb-2 h-100">
-                        <div class="feature bg-gradient text-white rounded-3 mb-3">
-                            <a href="https://pf.kakao.com/_jsWPb">
-                                <img src="{% static 'smartfarm/images/kakao.png' %}" width="20%">
-                            </a>
-                        </div>
-                        <h2 class="h5">카카오채널</h2>
-                        <p class="mb-0">소통 전용 학과 카카오톡 채널</p>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="col h-100">
-                        <div class="feature bg-gradient text-white rounded-3 mb-3">
-                            <a href="mailto:smartfarm.jbnu@gmail.com">
-                                <img src="{% static 'smartfarm/images/gmail.png' %}" width="20%">
-                            </a>
-                        </div>
-                        <h2 class="h5">메일</h2>
-                        <p class="mb-0">학생회 구글 이메일</p>
-                    </div>
-                </div>
+                <h2 class="h5">학과홈페이지</h2>
+                <p class="mb-0">전북대학교 스마트팜학과 홈페이지</p>
             </div>
         </div>
-    </section>
+        <div class="col-lg-3">
+            <div class="col mb-2 h-100">
+                <div class="feature bg-gradient text-white rounded-3 mb-3">
+                    <a href="https://www.instagram.com/jbnu_smartfarm/">
+                        <img src="{% static 'smartfarm/images/instagram.png' %}" width="20%">
+                    </a>
+                </div>
+                <h2 class="h5">인스타그램</h2>
+                <p class="mb-0">홍보부 관리 학과 인스타그램</p>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="col mb-2 h-100">
+                <div class="feature bg-gradient text-white rounded-3 mb-3">
+                    <a href="https://pf.kakao.com/_jsWPb">
+                        <img src="{% static 'smartfarm/images/kakao.png' %}" width="20%">
+                    </a>
+                </div>
+                <h2 class="h5">카카오채널</h2>
+                <p class="mb-0">소통 전용 학과 카카오톡 채널</p>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="col h-100">
+                <div class="feature bg-gradient text-white rounded-3 mb-3">
+                    <a href="mailto:smartfarm.jbnu@gmail.com">
+                        <img src="{% static 'smartfarm/images/gmail.png' %}" width="20%">
+                    </a>
+                </div>
+                <h2 class="h5">메일</h2>
+                <p class="mb-0">학생회 구글 이메일</p>
+            </div>
+        </div>
+    </div>
+
 {% endblock %}

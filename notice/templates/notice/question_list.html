@@ -5,49 +5,49 @@
 
 {% load notice_filter %}
 {% block contents %}
-    <div class="container my-3">
-        <table class="table">
-            <thead class="thead-dark">
-            <tr>
-                <th class="col-2" scope="col">번호</th>
-                <th class="col-7" scope="col">제목</th>
-                <th class="col-3" scope="col">작성일시</th>
-            </tr>
-            </thead>
-            <tbody>
-            {% if question_list %}
-                {% for question in question_list %}
-                    <tr>
-                        <td>{{ question_list.paginator.count|sub:question_list.start_index|sub:forloop.counter0|add:1 }}</td>
-                        <td>
-                            <a href="{% url 'notice:detail' question.id %}">{{ question.subject }}</a>
-                        </td>
-                        <td>{{ question.create_date|date:"Y년 m월 d일 | H시 i분" }}</td>
-                    </tr>
-                {% endfor %}
-            {% else %}
-                <tr>
-                    <td colspan="3">질문이 없습니다.</td>
-                </tr>
-            {% endif %}
-            </tbody>
-        </table>
 
-        <!-- 페이징처리 시작 -->
-        <ul class="pagination justify-content-center">
-            <!-- 이전페이지 -->
-            {% if question_list.has_previous %}
-                <li class="page-item">
-                    <a class="page-link" href="?page={{ question_list.previous_page_number }}">이전</a>
-                </li>
-            {% else %}
-                <li class="page-item disabled">
-                    <a class="page-link" tabindex="-1" aria-disabled="true" href="#">이전</a>
-                </li>
-            {% endif %}
-            <!-- 페이지리스트 -->
-            {% for page_number in question_list.paginator.page_range %}
-                {% if page_number >= question_list.number|add:-5 and page_number <= question_list.number|add:5 %}
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th class="col-2" scope="col">번호</th>
+            <th class="col-9" scope="col">제목</th>
+            <th class="col-1" scope="col">작성일시</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% if question_list %}
+            {% for question in question_list %}
+                <tr>
+                    <td>{{ question_list.paginator.count|sub:question_list.start_index|sub:forloop.counter0|add:1 }}</td>
+                    <td>
+                        <a href="{% url 'notice:detail' question.id %}">{{ question.subject }}</a>
+                    </td>
+                    <td>{{ question.create_date|date:"Y-m-d" }}</td>
+                </tr>
+            {% endfor %}
+        {% else %}
+            <tr>
+                <td colspan="3">질문이 없습니다.</td>
+            </tr>
+        {% endif %}
+        </tbody>
+    </table>
+
+    <!-- 페이징처리 시작 -->
+    <ul class="pagination justify-content-center">
+        <!-- 이전페이지 -->
+        {% if question_list.has_previous %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ question_list.previous_page_number }}">이전</a>
+            </li>
+        {% else %}
+            <li class="page-item disabled">
+                <a class="page-link" tabindex="-1" aria-disabled="true" href="#">이전</a>
+            </li>
+        {% endif %}
+        <!-- 페이지리스트 -->
+        {% for page_number in question_list.paginator.page_range %}
+            {% if page_number >= question_list.number|add:-5 and page_number <= question_list.number|add:5 %}
                 {% if page_number == question_list.number %}
                     <li class="page-item active" aria-current="page">
                         <a class="page-link" href="?page={{ page_number }}">{{ page_number }}</a>
@@ -57,23 +57,23 @@
                         <a class="page-link" href="?page={{ page_number }}">{{ page_number }}</a>
                     </li>
                 {% endif %}
-                {% endif %}
-            {% endfor %}
-            <!-- 다음페이지 -->
-            {% if question_list.has_next %}
-                <li class="page-item">
-                    <a class="page-link" href="?page={{ question_list.next_page_number }}">다음</a>
-                </li>
-            {% else %}
-                <li class="page-item disabled">
-                    <a class="page-link" tabindex="-1" aria-disabled="true" href="#">다음</a>
-                </li>
             {% endif %}
-        </ul>
-        <!-- 페이징처리 끝 -->
-
-        {% if user.is_active %}
-            <a href="{% url 'notice:question_create' %}" class="btn btn-primary text-white">공지등록</a>
+        {% endfor %}
+        <!-- 다음페이지 -->
+        {% if question_list.has_next %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ question_list.next_page_number }}">다음</a>
+            </li>
+        {% else %}
+            <li class="page-item disabled">
+                <a class="page-link" tabindex="-1" aria-disabled="true" href="#">다음</a>
+            </li>
         {% endif %}
-    </div>
+    </ul>
+    <!-- 페이징처리 끝 -->
+
+    {% if user.is_active %}
+        <a href="{% url 'notice:question_create' %}" class="btn btn-primary text-white">공지등록</a>
+    {% endif %}
+
 {% endblock %}

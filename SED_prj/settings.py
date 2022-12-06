@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'room',
     'survey',
     'common',
+    'scheduler',
 ]
 
 MIDDLEWARE = [

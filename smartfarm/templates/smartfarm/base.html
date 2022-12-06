@@ -28,6 +28,7 @@
                 <li class="nav-item"><a class="nav-link" style="font-weight: bold" href="/notice/">공지사항</a></li>
                 <li class="nav-item"><a class="nav-link" style="font-weight: bold" href="/survey/">설문조사</a></li>
                 <li class="nav-item"><a class="nav-link" style="font-weight: bold" href="/partnership/">학과제휴</a></li>
+                <li class="nav-item"><a class="nav-link" style="font-weight: bold" href="/scheduler/">학과일정</a></li>
                 <li class="nav-item"><a class="nav-link" style="font-weight: bold" href="/room/">과방관리</a></li>
                 <li class="nav-item"><a class="nav-link" style="font-weight: bold" href="/council/">학생회조직</a></li>
                 <li class="nav-item"><a class="nav-link" style="font-weight: bold" href="/location/">학과위치</a></li>
@@ -47,16 +48,14 @@
 </nav>
 
 <section class="py-3">
-    {% block contents %}{% endblock %}
+    <section class="py-5" id="features">
+        <div class="container px-5 my-5">
+            {% block contents %}{% endblock %}
+        </div>
+    </section>
 </section>
-
-{#<footer class="py-3 bg-light">#}
-{#    <div class="container"><p class="m-0 text-center text-dark">[54896] 전라북도 전주시 덕진구 백제대로 567 전북대학교 스마트팜학과</p></div>#}
-{#</footer>#}
 
 <!-- Bootstrap core JS-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-<!-- Core theme JS-->
-<script src="js/scripts.js"></script>
 </body>
 </html>
