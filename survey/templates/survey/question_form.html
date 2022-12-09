@@ -30,5 +30,6 @@
                       id="content" rows="5">{{ form.content.value|default_if_none:'' }}</textarea>
         </div>
         <button type="submit" class="btn btn-primary">저장하기</button>
+        <button type="button" class="btn btn-danger" onclick="location.href='{% url 'survey:index' %}'">취소하기</button>
     </form>
 {% endblock %}

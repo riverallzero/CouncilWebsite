@@ -45,7 +45,7 @@
     cursor: pointer;
   }
 .fc a[data-navlink]:hover {
-    text-decoration: underline;
+    text-decoration: none;
   }
 .fc-direction-ltr {
   direction: ltr;
@@ -1456,7 +1456,7 @@ A VERTICAL event
 
 }
 .fc .fc-list-event.fc-event-forced-url:hover a {
-    text-decoration: underline;
+    text-decoration: none;
   }
 
 
@@ -1469,7 +1469,7 @@ A VERTICAL event
 
   .fc-theme-bootstrap5 a:not([href]) {
     color: inherit;
-    text-decoration: inherit;
+    text-decoration: none;
   }
 
 .fc-theme-bootstrap5 .fc-list,
@@ -1492,4 +1492,3 @@ A VERTICAL event
 .fc-theme-bootstrap5-shaded {
   background-color: var(--bs-gray-200);
 }
-
