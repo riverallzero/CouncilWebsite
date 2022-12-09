@@ -3,14 +3,23 @@
     <p class="lead my-3 font-weight-bold">| 설문조사 | 과행사 참여 설문조사</p>
 {% endblock %}
 
+{% load static %}
 {% load notice_filter %}
 {% block contents %}
+    <div class="carousel-inner bg-black is-round-title">
+        <div class="item-active">
+            <img src="{% static 'smartfarm/images/002.jpg' %}" style="width: 100%">
+        </div>
+    </div>
+
+    <br/>
+
     <table class="table">
         <thead class="thead-dark">
         <tr>
             <th class="col-2" scope="col">번호</th>
-            <th class="col-9" scope="col">제목</th>
-            <th class="col-1" scope="col">작성일시</th>
+            <th class="col-5" scope="col">제목</th>
+            <th class="col-4" scope="col">작성일시</th>
         </tr>
         </thead>
         <tbody>
@@ -19,7 +28,8 @@
                 <tr>
                     <td>{{ question_list.paginator.count|sub:question_list.start_index|sub:forloop.counter0|add:1 }}</td>
                     <td>
-                        <a href="{% url 'survey:detail' question.id %}">{{ question.subject }}</a>
+                        <a href="{% url 'survey:detail' question.id %}"
+                           style="color: black; text-decoration: none;">{{ question.subject }}</a>
                     </td>
                     <td>{{ question.create_date|date:"Y-m-d" }}</td>
                 </tr>
