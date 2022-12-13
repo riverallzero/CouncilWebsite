@@ -11,6 +11,17 @@
 3. python manage.py createsuperuser
 4. python manage.py runserver
 
+## 서버 계정
+- 아이디: teamklc
+- 비밀번호: rkdekdud!
+- IP: http://113.198.63.23:8000/
+
+## WSL
+- ssh teamklc@113.198.63.23.8000
+- $ docker ps
+- $ docker-compose up : 서비스 띄우기
+- 깃허브 토큰 사용해서 로그인 후 clone
+
 
 ### 개인 작업 시
 - <a href="https://git-fork.com/">Fork</a> 다운로드
