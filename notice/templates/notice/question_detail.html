@@ -1,26 +1,45 @@
 {% extends 'smartfarm/base.html' %}
-{% block description %}
-    <p class="lead my-3 font-weight-bold">| 공지사항 | 학과 공지사항</p>
-{% endblock %}
 
-{% block contents %}
-    <h2 class="border-bottom py-2">{{ question.subject }}</h2>
-    <div class="d-flex justify-content-end">
-        <div class="badge bg-success text-white p-2">
-            {{ question.create_date|date:"Y년 m월 d일 | H시 i분" }}
+{% block section %}
+    <section class="page-section bg-dark" id="contact">
+        <div class="container px-1 px-lg-1" style="font-family: Arial, Helvetica Neue, Helvetica, sans-serif;">
+            <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+                <div class="justify bg-white" style="border-radius: 2em;">
+                    <br/>
+                    <hr class="divider"/>
+                    <h3 style="font-weight: bold">공 지 사 항</h3>
+                    <hr class="divider"/>
+
+                    <h3>{{ question.subject }}</h3>
+                    <div class="d-flex justify-content-end">
+                        <div class="badge bg-success text-white p-2">
+                            {{ question.create_date|date:"Y년 m월 d일 | H시 i분" }}
+                        </div>
+                    </div>
+                    <div class="card my-3">
+                        <div class="card-body" style="text-align: left;">
+                            {{ question.content }}
+                        </div>
+                    </div>
+                    {% if question.head_image %}
+                        <div class="card my-3">
+                            <div class="card-body">
+                                <img class="img-fluid rounded" src="{{ question.head_image.url }}" alt=""
+                                     style="max-width: 100%">
+                            </div>
+                        </div>
+                    {% endif %}
+
+                    {% if user.is_active %}
+                        <div class="my-3">
+                            <a href="{% url 'notice:question_modify' question.id %}"
+                               class="btn btn-success">수정</a>
+                            <a href="{% url 'notice:question_delete' question.id %}"
+                               class="delete btn btn-danger">삭제</a>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="card my-3">
-        <div class="card-body">
-            <div class="card-text" style="white-space: pre-line;">{{ question.content }}</div>
-        </div>
-    </div>
-    {% if user.is_active %}
-        <div class="my-3">
-            <a href="{% url 'notice:question_modify' question.id %}"
-               class="btn btn-success">수정</a>
-            <a href="{% url 'notice:question_delete' question.id %}"
-               class="delete btn btn-danger">삭제</a>
-        </div>
-    {% endif %}
+    </section>
 {% endblock %}

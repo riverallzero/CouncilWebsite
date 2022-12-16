@@ -4,7 +4,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 
 from .forms import QuestionForm, AnswerForm
-from .models import Question
+from .models import Question, Answer
 from django.core.paginator import Paginator
 
 
@@ -51,3 +51,26 @@ def question_create(request):
         form = QuestionForm()
     context = {'form': form}
     return render(request, 'qna/question_form.html', context)
+
+
+@login_required(login_url='common:login')
+def answer_modify(request, answer_id):
+    answer = get_object_or_404(Answer, pk=answer_id)
+    if request.method == "POST":
+        form = AnswerForm(request.POST, instance=answer)
+        if form.is_valid():
+            answer = form.save(commit=False)
+            answer.modify_date = timezone.now()
+            answer.save()
+            return redirect('qna:detail', question_id=answer.question.id)
+    else:
+        form = AnswerForm(instance=answer)
+    context = {'answer': answer, 'form': form}
+    return render(request, 'qna/answer_form.html', context)
+
+
+@login_required(login_url='common:login')
+def answer_delete(request, answer_id):
+    answer = get_object_or_404(Answer, pk=answer_id)
+    answer.delete()
+    return redirect('qna:detail', question_id=answer.question.id)

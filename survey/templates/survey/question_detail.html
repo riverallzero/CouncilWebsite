@@ -2,33 +2,42 @@
 {#-----------------------설문지 디테일-----------------------#}
 {#--------------------------------------------------------#}
 {% extends "smartfarm/base.html" %}
-{% block description %}
-    <p class="lead my-3 font-weight-bold">| 설문조사 | 과행사 참여 설문조사</p>
-{% endblock %}
 
-{% block contents %}
-    <div class="row">
-        <div class="col-sm-6">
-            <!-- Title -->
-            <h2 class="mt-4">{{ question.subject }}</h2>
-            <!-- Date/Time -->
-            <p>{{ question.create_date|date:"Y년 m월 d일 | H시 i분" }}</p>
-            <hr>
-            <!-- Post Content -->
-            <p>※ 오른쪽 구글폼을 작성해주시길바랍니다. ※</p>
-            {% if user.is_active %}
-                <div class="my-3">
-                    <a href="{% url 'survey:question_modify' question.id %}"
-                       class="btn btn-success">수정</a>
-                    <a href="{% url 'survey:question_delete' question.id %}"
-                       class="delete btn btn-danger">삭제</a>
+{% block section %}
+    <section class="page-section bg-success" style="font-family: Arial, Helvetica Neue, Helvetica, sans-serif">
+        <div class="container px-1 px-lg-1">
+            <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+                <div class="justify bg-white" style="border-radius: 2em;">
+                    <br/>
+                    <hr class="divider"/>
+                    <h3 style="font-weight: bold">설 문 조 사</h3>
+                    <hr class="divider"/>
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <!-- Title -->
+                            <h2 class="mt-4">{{ question.subject }}</h2>
+                            <!-- Date/Time -->
+                            <p>{{ question.create_date|date:"Y년 m월 d일 | H시 i분" }}</p>
+                            <hr>
+                            <!-- Post Content -->
+                            <p>※ 구글폼을 작성해주시길바랍니다. ※</p>
+                            {% if user.is_active %}
+                                <div class="my-3">
+                                    <a href="{% url 'survey:question_modify' question.id %}"
+                                       class="btn btn-success">수정</a>
+                                    <a href="{% url 'survey:question_delete' question.id %}"
+                                       class="delete btn btn-danger">삭제</a>
+                                </div>
+                            {% endif %}
+                        </div>
+                        <div class="col-sm-6">
+                            <iframe src="{{ question.content }}" width="100%" height="800px" marginheight="0" marginwidth="0">로드 중…
+                            </iframe>
+                        </div>
+                    </div>
                 </div>
-            {% endif %}
+            </div>
         </div>
-        <div class="col-sm-6">
-            <iframe src="{{ question.content }}"
-                    width="100%" height="300%" frameborder="0" marginheight="0" marginwidth="0">로드 중…
-            </iframe>
-        </div>
-    </div>
+    </section>
 {% endblock %}
