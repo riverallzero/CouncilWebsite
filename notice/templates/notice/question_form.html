@@ -1,37 +1,51 @@
 {% extends 'smartfarm/base.html' %}
-{% block description %}
-    <p class="lead my-3 font-weight-bold">| 공지사항 | 학과 공지사항</p>
-{% endblock %}
 
-{% block contents %}
-    <div class="container">
-        <h5 class="my-3 border-bottom pb-2">공지등록</h5>
-        <form method="post" class="post-form my-3">
-            {% csrf_token %}
-            {% if form.errors %}
-                <div class="alert alert-danger" role="alert">
-                    {% for field in form %}
-                        {% if field.errors %}
-                            <div>
-                                <strong>{{ field.label }}</strong>
-                                {{ field.errors }}
-                            </div>
-                        {% endif %}
-                    {% endfor %}
-                </div>
-            {% endif %}
-            <div class="mb-3">
-                <label for="subject" class="form-label">제목</label>
-                <input type="text" class="form-control" name="subject" id="subject"
-                       value="{{ form.subject.value|default_if_none:'' }}">
+{% block section %}
+<section class="page-section bg-dark">
+    <div class="container px-1 px-lg-1">
+        <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+            <div class="justify bg-white" style="border-radius: 2em;">
+                <br/>
+                <hr class="divider"/>
+                <h3 style="font-weight: bold">공 지 등 록</h3>
+                <hr class="divider"/>
+
+                <form method="POST" class="post-form my-3" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {% if form.errors %}
+                        <div class="alert alert-danger" role="alert">
+                            {% for field in form %}
+                                {% if field.errors %}
+                                    <div>
+                                        <strong>{{ field.label }}</strong>
+                                        {{ field.errors }}
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                    <div class="mb-3">
+                        <label for="subject" class="form-label">제목</label>
+                        <input type="text" class="form-control" name="subject" id="subject"
+                               value="{{ form.subject.value|default_if_none:'' }}">
+                    </div>
+                    <div class="mb-3">
+                        <label for="content" class="form-label">내용</label>
+                        <textarea class="form-control" name="content"
+                                  id="content" rows="10">{{ form.content.value|default_if_none:'' }}</textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <input type="file" class="form-control" name="head_image" id="head_image"
+                               value="{{ form.head_image.value|default_if_none:'' }}">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">저장하기</button>
+                    <button type="button" class="btn btn-danger" onclick="location.href='{% url 'notice:index' %}'">취소하기
+                    </button>
+                </form>
             </div>
-            <div class="mb-3">
-                <label for="content" class="form-label">내용</label>
-                <textarea class="form-control" name="content"
-                          id="content" rows="10">{{ form.content.value|default_if_none:'' }}</textarea>
-            </div>
-            <button type="submit" class="btn btn-primary">저장하기</button>
-            <button type="button" class="btn btn-danger" onclick="location.href='{% url 'notice:index' %}'">취소하기</button>
-        </form>
+        </div>
     </div>
+</section>
 {% endblock %}

@@ -12,7 +12,7 @@
     <!-- 넌필드 오류 -->
     {% for error in form.non_field_errors %}
     <div>
-        <strong>{{ error }}</strong>
+        <strong>{{ error }} <br/> ! 학생회 인증 관리자만 로그인 가능합니다 !</strong>
     </div>
     {% endfor %}
 </div>
