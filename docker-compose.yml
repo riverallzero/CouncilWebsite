@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    command: gunicorn SED_prj.wsgi:application --bind 0.0.0.0:8005
+    volumes:
+      - ./:/usr/src/app
+    ports:
+      - 8005:8005

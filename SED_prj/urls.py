@@ -21,6 +21,8 @@ from django.conf.urls.static import static
 
 from qna import views
 
+app_name = 'SED_prj'
+
 urlpatterns = [
     # path('', include('single_pages.urls')),
     path('todo/', include('todo_app.urls')),
@@ -38,3 +40,4 @@ urlpatterns = [
     path('', include('smartfarm.urls'))
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
