@@ -3,11 +3,51 @@
 {#--------------------------------------------------------#}
 
 {% extends "smartfarm/base.html" %}
+
+
 {% block description %}
     <p class="lead my-3 font-weight-bold">| 학과위치 | 학교 건물별 학과 위치</p>
 {% endblock %}
 
+
 {% block contents %}
-
-
+{% load static %}
+<div class="ml-3 text-secondary">
+    <h4 class="font-weight-bold">학과 위치</h4>
+    <div>
+        <div class="col-md-2 mt-4">
+            <hr/>
+        </div>
+        <div class="row ml-2">
+            <div class="py-2 text-success">
+                <i class="fas fa-duotone fa-location-dot fa-2x"></i>
+            </div>
+            <div class="ml-4">
+                <h5 class="font-weight-bold">주소</h5>
+                <h8 class="py-2 ">전라북도 전주시 덕진구 백제대로 567 전북대학교 농업생명과학대학 1호관 402호</h8>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="col-md-2 mt-5">
+            <hr/>
+        </div>
+        <div class="row ml-2">
+            <div class="text-info">
+                <i class="fas fa-regular fa-map-location-dot fa-2x"></i>
+            </div>
+            <div class="ml-4">
+                <h5 class="py-1 font-weight-bold">지도</h5>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row d-flex justify-content-center">
+        <iframe id="map"
+                title="map"
+                width="900"
+                height="500"
+                src="{% static 'location/index.html' %}">
+        </iframe>
+</div>
 {% endblock %}

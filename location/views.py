@@ -6,3 +6,9 @@ def location(request):
         request,
         'location/home.html',
     )
+
+def index(request):
+    return render(
+        request,
+        'location/index.html',
+    )
