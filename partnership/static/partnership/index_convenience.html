@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Display a map on a webpage</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .mapboxgl-popup {
+            max-width: 450px;
+            font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+<div id="map"></div>
+<script>
+    mapboxgl.accessToken = 'pk.eyJ1Ijoicml2ZXJhbGx6ZXJvIiwiYSI6ImNsYWUxa3U4bzBvM2QzcXF0cnY5NjA4dXQifQ.e4Nsprj9JDJIpVO0KfOO7w';
+    const map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/riverallzero/clae38gsh000714pnzx14v02h', // style URL
+        center: [127.12885310283329, 35.84202906419606], // 학교 경도, 위도
+        zoom: 15,
+        projection: 'globe',
+        pitch: 45,
+        bearing: -20,
+        antialias: true
+    });
+
+    map.on('load', () => {
+
+        map.addSource('places', {
+            'type': 'geojson',
+            'data': {
+                'type': 'FeatureCollection',
+                'features': [
+
+                    {
+                        'type': 'Feature',
+                        'properties': {
+                            'description':
+                                '<strong>드라이빙존 운전면허</strong>' +
+                                '<p>' +
+                                '</p>'
+                        },
+                        'geometry': {
+                            'type': 'Point',
+                            'coordinates': [127.12728391027547, 35.84365074542164]
+                        }
+                    },
+                    {
+                        'type': 'Feature',
+                        'properties': {
+                            'description':
+                                '<strong>세븐스타 코인노래방</strong>' +
+                                '<p>' +
+                                '</p>'
+                           },
+                        'geometry': {
+                            'type': 'Point',
+                            'coordinates': [127.12728391027547, 35.84365074542164]
+                        }
+                    },
+
+                    {
+                        'type': 'Feature',
+                        'properties': {
+                            'description':
+                                '<strong>스피드 기획</strong>' +
+                                '<p>' +
+                                '</p>'
+                           },
+                        'geometry': {
+                            'type': 'Point',
+                            'coordinates': [127.12728391027547, 35.84365074542164]
+                        }
+                    },
+
+                    {
+                        'type': 'Feature',
+                        'properties': {
+                            'description':
+                                '<strong>코앞 휘트니스</strong>' +
+                                '<p>' +
+                                '</p>'
+                           },
+                        'geometry': {
+                            'type': 'Point',
+                            'coordinates': [127.13127820930255, 35.84096746265403]
+                        }
+                    },
+
+                    {
+                        'type': 'Feature',
+                        'properties': {
+                            'description':
+                                '<strong>배틀PC</strong>' +
+                                '<p>' +
+                                '</p>'
+                           },
+                        'geometry': {
+                            'type': 'Point',
+                            'coordinates': [127.12610962267946, 35.84479207297072]
+                        }
+                    },
+
+                    {
+                        'type': 'Feature',
+                        'properties': {
+                            'description':
+                                '<strong>3POP PC</strong>' +
+                                '<p>' +
+                                '</p>'
+                           },
+                        'geometry': {
+                            'type': 'Point',
+                            'coordinates': [127.12742785547998, 35.843679883710905]
+                        }
+                    },
+
+                    {
+                        'type': 'Feature',
+                        'properties': {
+                            'description':
+                                '<strong>더 패밀리 휘트니스</strong>' +
+                                '<p>' +
+                                '</p>'
+                           },
+                        'geometry': {
+                            'type': 'Point',
+                            'coordinates': [127.12040828459243, 35.833369977525216]
+                        }
+                    },
+
+                    {
+                        'type': 'Feature',
+                        'properties': {
+                            'description':
+                                '<strong>우리들 약국</strong>' +
+                                '<p>' +
+                                '</p>'
+                           },
+                        'geometry': {
+                            'type': 'Point',
+                            'coordinates': [127.12844270869992, 35.84322141556524]
+                        }
+                    },
+
+                    {
+                        'type': 'Feature',
+                        'properties': {
+                            'description':
+                                '<strong>대학 당구장</strong>' +
+                                '<p>' +
+                                '</p>'
+                           },
+                        'geometry': {
+                            'type': 'Point',
+                            'coordinates': [127.12849250486181, 35.84321234976542]
+                        }
+                    },
+
+                    {
+                        'type': 'Feature',
+                        'properties': {
+                            'description':
+                                '<strong>더 붐락 볼링장</strong>' +
+                                '<p>' +
+                                '</p>'
+                           },
+                        'geometry': {
+                            'type': 'Point',
+                            'coordinates': [127.12652263024097, 35.84347580430184]
+                        }
+                    },
+
+                    {
+                        'type': 'Feature',
+                        'properties': {
+                            'description':
+                                '<strong>죤스 1,2 포켓 당구장</strong>' +
+                                '<p>' +
+                                '<li>위치 수정 필요</li>' +
+                                '</p>'
+                           },
+                        'geometry': {
+                            'type': 'Point',
+                            'coordinates': [127.130845, 35.849160]
+                        }
+                    },
+
+                    {
+                        'type': 'Feature',
+                        'properties': {
+                            'description':
+                                '<strong>팡팡 노래방</strong>' +
+                                '<p>' +
+                                '</p>'
+                           },
+                        'geometry': {
+                            'type': 'Point',
+                            'coordinates': [127.12778318263844, 35.84264982066371]
+                        }
+                    },
+
+                    {
+                        'type': 'Feature',
+                        'properties': {
+                            'description':
+                                '<strong>스튜디오 호감</strong>' +
+                                '<p>' +
+                                '</p>'
+                           },
+                        'geometry': {
+                            'type': 'Point',
+                            'coordinates': [127.12624403949286, 35.84229995726573]
+                        }
+                    },
+
+                    {
+                        'type': 'Feature',
+                        'properties': {
+                            'description':
+                                '<strong>아리따움 전북대점</strong>' +
+                                '<p>' +
+                                '</p>'
+                           },
+                        'geometry': {
+                            'type': 'Point',
+                            'coordinates': [127.1271099745203, 35.84390328136779]
+                        }
+                    },
+
+                ]
+            }
+        });
+        // Add a layer showing the places.
+        map.addLayer({
+            'id': 'places',
+            'type': 'circle',
+            'source': 'places',
+            'paint': {
+                'circle-color': '#4264fb',
+                'circle-radius': 6,
+                'circle-stroke-width': 2,
+                'circle-stroke-color': '#ffffff'
+            }
+        });
+
+        // Create a popup, but don't add it to the map yet.
+        const popup = new mapboxgl.Popup({
+            closeButton: false,
+            closeOnClick: false
+        });
+
+        map.on('mouseenter', 'places', (e) => {
+            // Change the cursor style as a UI indicator.
+            map.getCanvas().style.cursor = 'pointer';
+
+            // Copy coordinates array.
+            const coordinates = e.features[0].geometry.coordinates.slice();
+            const description = e.features[0].properties.description;
+
+            // Ensure that if the map is zoomed out such that multiple
+            // copies of the feature are visible, the popup appears
+            // over the copy being pointed to.
+            while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+                coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+            }
+
+            // Populate the popup and set its coordinates
+            // based on the feature found.
+            popup.setLngLat(coordinates).setHTML(description).addTo(map);
+        });
+
+        map.on('mouseleave', 'places', () => {
+            map.getCanvas().style.cursor = '';
+            popup.remove();
+        });
+    });
+
+</script>
+</body>
+</html>
