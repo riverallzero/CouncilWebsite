@@ -1,58 +1,47 @@
+{#--------------------------------------------------------#}
+{#-----------------------기본 홈페이지-----------------------#}
+{#--------------------------------------------------------#}
+
 {% extends "smartfarm/base.html" %}
+{% block description %}
+    <p class="lead my-3 font-weight-bold">| 학과제휴 | 2022년 학과 제휴 업체 및 위치</p>
+{% endblock %}
+
+{% block contents %}
 {% load static %}
-
-{% block section %}
-    <section class="page-section bg-black">
-        <div class="container px-1 px-lg-1" style="font-family: Arial, Helvetica Neue, Helvetica, sans-serif;">
-            <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
-                <div class="justify bg-white" style="border-radius: 2em;">
-                    <br/>
-                    <hr class="divider"/>
-                    <h3 style="font-weight: bold">제 휴 업 체</h3>
-                    <hr class="divider"/>
-
-                    <div class="row">
-                        <div class="col-md-3 container"><!--navbar start-->
-                            <nav class="ml-1 list-group ml-1 list-group">
-                                <h5 class="list-group-item text-white rounded font-weight-bold py-4"
-                                    style="background-color: #6073A0">제휴 목록</h5>
-                                <a href="{% url 'cafe' %}"
-                                   class="list-group-item list-group-item-action text-secondary font-weight-bold">카페/디저트</a>
-                                <a href="{% url 'convenience' %}"
-                                   class="list-group-item list-group-item-action text-secondary font-weight-bold">편의</a>
-                                <a href="{% url 'food' %}"
-                                   class="list-group-item list-group-item-action text-secondary font-weight-bold">음식점</a>
-                                <a href="{% url 'bar' %}"
-                                   class="list-group-item list-group-item-action text-secondary font-weight-bold">술집</a>
-                            </nav>
-                        </div><!--navbar end-->
-                        <div class="col-md-9">
-                            <p class="py-2 font-weight-bold"> 학과 제휴 > 술집 </p>
-                            <div>
-                                <div><img src="{% static 'partnership/images/bar.PNG' %}"
-                                          width="100%"></div>
-                                <div class="mt-5"><img src="{% static 'partnership/images/bar_list.PNG' %}"
-                                                       width="100%"></div>
-                            </div>
-                            <div>
-                                <div class="mt-5 font-weight-bold">
-                                    <h4>
-                                        <i class="text-success fas fa-duotone fa-location-dot"></i>
-                                        위치
-                                    </h4>
-                                </div>
-                                <iframe id="map"
-                                        title="map"
-                                        width="100%"
-                                        height="400"
-                                        src="{% static 'partnership/index_bar.html' %}"
-                                        class="ml-5 mt-2">
-                                </iframe>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<div class="px-3 nav-scroller col-6"><!--navbar start-->
+    <nav class="nav d-flex justify-content-between">
+        <a class="text-secondary font-weight-bold"
+           href="{% url 'cafe' %}">카페/디저트</a>
+        <a href="{% url 'convenience' %}"
+           class="text-secondary font-weight-bold">편의</a>
+        <a href="{% url 'food' %}"
+           class="text-secondary font-weight-bold">음식점</a>
+        <a href="{% url 'bar' %}"
+           class="text-secondary font-weight-bold">> 술집</a>
+    </nav>
+</div><!--navbar end-->
+<div class="col-md-9 mt-5">
+    <div>
+        <div><img src="{% static 'partnership/images/bar.PNG' %}"
+                width="800px"></div>
+        <div class="mt-5"><img src="{% static 'partnership/images/bar_list.PNG' %}"
+                width="800px"></div>
+    </div>
+    <div>
+        <div class="mt-5 font-weight-bold">
+            <h4>
+                <i class="text-success fas fa-duotone fa-location-dot"></i>
+                위치
+            </h4>
         </div>
-    </section>
+        <iframe id="map"
+                title="map"
+                width="700"
+                height="400"
+                src="{% static 'partnership/index_bar.html' %}"
+                class="ml-5 mt-2">
+        </iframe>
+    </div>
+</div>
 {% endblock %}
