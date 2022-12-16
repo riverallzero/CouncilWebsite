@@ -12,4 +12,20 @@
 
 <h1>과방관리</h1>
 
+{% for p in post_list %}
+<div class="card-mb-4">
+    <hr/>
+    {% if p.head_image %}
+        <img class="card-img-top" src = "{{ p.head_image.url }}" alt = "{{ p }} head im-age" width="300px">
+    {% else %}
+        <img class="card-img-top" src="https://picsum.photos/seed/{{ p.id }}/800/200"  alt="random_image" width="300px">
+    {% endif %}
+
+    <h2><a href="{{ p.get_absolute_url }}">{{ p.title }}</a></h2>
+    <h4>{{ p.created_at }}</h4>
+    <p>{{ p.content }}</p>
+
+</div>
+{% endfor %}
+
 {% endblock %}

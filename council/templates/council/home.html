@@ -3,12 +3,14 @@
 {#--------------------------------------------------------#}
 
 {% extends "smartfarm/base.html" %}
+{% load static %}
 {% block description %}
     <p class="lead my-3 font-weight-bold">| 학생회조직 | 제 1대 기대학생회 학생회조직도</p>
 {% endblock %}
 
-
 {% block contents %}
 
+<h1 align="center">학생회 조직도</h1>
+<h2 align="center"><img src="{% static 'images/student_council.jpg' %}"  width="500" height="500"></h2>
 
 {% endblock %}
