@@ -1,31 +1,33 @@
-{#--------------------------------------------------------#}
-{#-----------------------기본 홈페이지-----------------------#}
-{#--------------------------------------------------------#}
-
 {% extends "smartfarm/base.html" %}
-{% block description %}
-    <p class="lead my-3 font-weight-bold">| 과방관리 | 과방관리 및 구비물품 조사</p>
-{% endblock %}
 
-{% block contents %}
+{% block section %}
+    <section class="page-section bg-black">
+        <div class="container px-1 px-lg-1" style="font-family: Arial, Helvetica Neue, Helvetica, sans-serif;">
+            <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+                <div class="justify bg-white" style="border-radius: 2em;">
+                    <br/>
+                    <hr class="divider"/>
+                    <h3 style="font-weight: bold">과 방 관 리</h3>
+                    <hr class="divider"/>
+                    {% for p in post_list %}
+                        <div class="card-mb-4">
+                            <hr/>
+                            {% if p.head_image %}
+                                <img class="card-img-top" src="{{ p.head_image.url }}" alt="{{ p }} head im-age"
+                                     width="300px">
+                            {% else %}
+                                <img class="card-img-top" src="https://picsum.photos/seed/{{ p.id }}/800/200"
+                                     alt="random_image" width="300px">
+                            {% endif %}
 
+                            <h2><a href="{{ p.get_absolute_url }}">{{ p.title }}</a></h2>
+                            <h4>{{ p.created_at }}</h4>
+                            <p>{{ p.content }}</p>
 
-<h1>과방관리</h1>
-
-{% for p in post_list %}
-<div class="card-mb-4">
-    <hr/>
-    {% if p.head_image %}
-        <img class="card-img-top" src = "{{ p.head_image.url }}" alt = "{{ p }} head im-age" width="300px">
-    {% else %}
-        <img class="card-img-top" src="https://picsum.photos/seed/{{ p.id }}/800/200"  alt="random_image" width="300px">
-    {% endif %}
-
-    <h2><a href="{{ p.get_absolute_url }}">{{ p.title }}</a></h2>
-    <h4>{{ p.created_at }}</h4>
-    <p>{{ p.content }}</p>
-
-</div>
-{% endfor %}
-
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
 {% endblock %}

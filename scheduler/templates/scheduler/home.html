@@ -1,55 +1,57 @@
-{#--------------------------------------------------------#}
-{#-----------------------기본 홈페이지-----------------------#}
-{#--------------------------------------------------------#}
-
 {% extends "smartfarm/base.html" %}
 {% load static %}
-{% block contents %}
-    <link href="{% static 'scheduler/main.css' %}" rel='stylesheet'/>
-    <script src="{% static 'scheduler/main.js' %}"></script>
-    <script src="{% static 'scheduler/ko.js' %}"></script>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var calendarEl = document.getElementById('calendar');
+{% block section %}
+    <section class="page-section bg-black" style="font-family: Arial, Helvetica Neue, Helvetica, sans-serif">
+        <div class="container px-1 px-lg-1">
+            <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+                <div class="justify bg-white" style="border-radius: 2em;">
+                    <br/>
+                    <hr class="divider"/>
+                    <h3 style="font-weight: bold">학 사 일 정</h3>
+                    <hr class="divider"/>
 
-            var calendar = new FullCalendar.Calendar(calendarEl, {
-                initialDate: new Date(),
-                editable: false,
-                selectable: true,
-                businessHours: true,
-                dayMaxEvents: true,
-                locale: 'ko',
-                googleCalendarApiKey: 'AIzaSyCGaBzFKZQ8UqnJA8_flAh7AUTnLpACpac',
-                eventSources: [
-                    {
-                        googleCalendarId: 'smartfarm.jbnu@gmail.com',
-                        color: 'steelblue',
-                        textColor: 'white'
-                    },
-                    {
-                        googleCalendarId: 'ko.south_korea#holiday@group.v.calendar.google.com',
-                        color: 'coral',
-                        textColor: 'white'
-                    }
-                ],
-            });
+                    <link href="{% static 'scheduler/main.css' %}" rel='stylesheet'/>
+                    <script src="{% static 'scheduler/main.js' %}"></script>
+                    <script src="{% static 'scheduler/ko.js' %}"></script>
 
-            calendar.render();
-        });
+                    <script>
+                        document.addEventListener('DOMContentLoaded', function () {
+                            var calendarEl = document.getElementById('calendar');
 
-    </script>
+                            var calendar = new FullCalendar.Calendar(calendarEl, {
+                                initialDate: new Date(),
+                                editable: false,
+                                selectable: true,
+                                businessHours: true,
+                                dayMaxEvents: true,
+                                locale: 'ko',
+                                googleCalendarApiKey: 'AIzaSyCGaBzFKZQ8UqnJA8_flAh7AUTnLpACpac',
+                                eventSources: [
+                                    {
+                                        googleCalendarId: 'smartfarm.jbnu@gmail.com',
+                                        color: 'steelblue',
+                                        textColor: 'white'
+                                    },
+                                    {
+                                        googleCalendarId: 'ko.south_korea#holiday@group.v.calendar.google.com',
+                                        color: 'coral',
+                                        textColor: 'white'
+                                    }
+                                ],
+                            });
 
-    <div class="carousel-inner bg-black is-round-title">
-        <div class="item-active">
-            <img src="{% static 'smartfarm/images/001.jpg' %}" style="width: 100%">
+                            calendar.render();
+                        });
+
+                    </script>
+
+                    <div id="calendarBox">
+                        <div id="calendar" style="text-decoration: none"></div>
+                    </div>
+                    <br/>
+                </div>
+            </div>
         </div>
-    </div>
-
-    <br/>
-
-    <div id="calendarBox">
-        <div id="calendar" style="text-decoration: none"></div>
-    </div>
-
+    </section>
 {% endblock %}
