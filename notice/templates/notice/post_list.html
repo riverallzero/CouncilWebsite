@@ -1,6 +1,6 @@
 {% extends 'smartfarm/base.html' %}
-{% load notice_filter %}
 {% load static %}
+{% load notice_filter %}
 
 {% block section %}
     <section class="page-section bg-black">
@@ -13,7 +13,7 @@
                     <hr class="divider"/>
 
                     {% if user.is_active %}
-                        <a href="{% url 'notice:question_create' %}" class="btn btn-primary text-white">공지등록</a>
+                        <a href="/notice/create_post/" class="btn btn-primary text-white">공지등록</a>
                     {% endif %}
                     <br/>
 
@@ -26,15 +26,16 @@
                         </tr>
                         </thead>
                         <tbody>
-                        {% if question_list %}
-                            {% for question in question_list %}
+                        {% if post_list %}
+                            {% for p in post_list %}
                                 <tr>
-                                    <td>{{ question_list.paginator.count|sub:question_list.start_index|sub:forloop.counter0|add:1 }}</td>
+                                    <td>{{ post_list.paginator.count|sub:post_list.start_index|sub:forloop.counter0|add:1 }}</td>
                                     <td>
-                                        <a href="{% url 'notice:detail' question.id %}"
-                                           style="color: black; text-decoration: none;">{{ question.subject }}</a>
+                                        <a href="{% url 'notice:detail' p.id %}"
+                                           style="color: black; text-decoration: none;"
+                                           id="post-{{ p.pk }}">{{ p.title }}</a>
                                     </td>
-                                    <td>{{ question.create_date|date:"Y-m-d" }}</td>
+                                    <td>{{ p.created_at|date:"Y-m-d" }}</td>
                                 </tr>
                             {% endfor %}
                         {% else %}
@@ -46,12 +47,11 @@
                     </table>
 
                     <!-- 페이징처리 시작 -->
-                    <ul class="pagination justify-content-center"
-                        style="font-family: Arial, Helvetica Neue, Helvetica, sans-serif;">
+                    <ul class="pagination justify-content-center">
                         <!-- 이전페이지 -->
-                        {% if question_list.has_previous %}
+                        {% if post_list.has_previous %}
                             <li class="page-item">
-                                <a class="page-link" href="?page={{ question_list.previous_page_number }}">이전</a>
+                                <a class="page-link" href="?page={{ post_list.previous_page_number }}">이전</a>
                             </li>
                         {% else %}
                             <li class="page-item disabled">
@@ -59,23 +59,23 @@
                             </li>
                         {% endif %}
                         <!-- 페이지리스트 -->
-                        {% for page_number in question_list.paginator.page_range %}
-                            {% if page_number >= question_list.number|add:-5 and page_number <= question_list.number|add:5 %}
-                                {% if page_number == question_list.number %}
-                                    <li class="page-item active" aria-current="page">
-                                        <a class="page-link" href="?page={{ page_number }}">{{ page_number }}</a>
-                                    </li>
-                                {% else %}
-                                    <li class="page-item">
-                                        <a class="page-link" href="?page={{ page_number }}">{{ page_number }}</a>
-                                    </li>
-                                {% endif %}
+                        {% for page_number in post_list.paginator.page_range %}
+                            {% if page_number >= post_list.number|add:-5 and page_number <= post_list.number|add:5 %}
+                            {% if page_number == post_list.number %}
+                                <li class="page-item active" aria-current="page">
+                                    <a class="page-link" href="?page={{ page_number }}">{{ page_number }}</a>
+                                </li>
+                            {% else %}
+                                <li class="page-item">
+                                    <a class="page-link" href="?page={{ page_number }}">{{ page_number }}</a>
+                                </li>
+                            {% endif %}
                             {% endif %}
                         {% endfor %}
                         <!-- 다음페이지 -->
-                        {% if question_list.has_next %}
+                        {% if post_list.has_next %}
                             <li class="page-item">
-                                <a class="page-link" href="?page={{ question_list.next_page_number }}">다음</a>
+                                <a class="page-link" href="?page={{ post_list.next_page_number }}">다음</a>
                             </li>
                         {% else %}
                             <li class="page-item disabled">
