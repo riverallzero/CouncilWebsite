@@ -1,20 +1,12 @@
 from django.urls import path
 from . import views
-import debug_toolbar
-from django.conf.urls import url, include
-from django.conf import settings
 
 app_name = 'room'
 
 urlpatterns = [
+    path('update_post/<int:pk>/', views.PostUpdate.as_view()),
+    path('create_post/', views.PostCreate.as_view()),
     path('', views.index, name='index'),
-    path('<int:question_id>/', views.detail, name='detail'),
-    path('create/', views.question_create, name='question_create'),
-    path('question/modify/<int:question_id>/', views.question_modify, name='question_modify'),
-    path('question/delete/<int:question_id>/', views.question_delete, name='question_delete'),
+    path('<int:pk>/', views.PostDetail.as_view(), name='detail'),
+    path('room/delete/<int:pk>/', views.post_delete, name='delete'),
 ]
-
-if settings.DEBUG:
-    urlpatterns += (
-        url(r'^__debug__/', include(debug_toolbar.urls)),
-    )

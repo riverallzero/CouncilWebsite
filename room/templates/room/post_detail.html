@@ -10,32 +10,25 @@
                     <h3 style="font-weight: bold">과 방 관 리</h3>
                     <hr class="divider"/>
 
-                    <h3>{{ question.subject }}</h3>
+                    <h3>{{ post.title }}</h3>
                     <div class="d-flex justify-content-end">
                         <div class="badge bg-success text-white p-2">
-                            {{ question.create_date|date:"Y년 m월 d일 | H시 i분" }}
+                            {{ post.created_at|date:"Y년 m월 d일 | H시 i분" }}
                         </div>
                     </div>
                     <div class="card my-3">
                         <div class="card-body" style="text-align: left;">
-                            {{ question.content }}
+                            {{ post.content }}
                         </div>
                     </div>
-                    {% if question.head_image %}
-                        <div class="card my-3">
-                            <div class="card-body">
-                                <img class="img-fluid rounded" src="{{ question.head_image.url }}" alt=""
-                                     style="max-width: 100%">
-                            </div>
-                        </div>
+                    {% if post.head_image %}
+                        <img class="img-fluid rounded" src="{{ post.head_image.url }}" alt="" style="max-width: 100%">
                     {% endif %}
 
                     {% if user.is_active %}
                         <div class="my-3">
-                            <a href="{% url 'room:question_modify' question.id %}"
-                               class="btn btn-success">수정</a>
-                            <a href="{% url 'room:question_delete' question.id %}"
-                               class="delete btn btn-danger">삭제</a>
+                            <a href="/room/update_post/{{ post.pk }}/" class="btn btn-success">수정</a>
+                            <a href="{% url 'room:delete' post.pk %}" class="delete btn btn-danger">삭제</a>
                         </div>
                     {% endif %}
                 </div>
