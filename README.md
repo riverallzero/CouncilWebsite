@@ -2,8 +2,8 @@
 
 ## 역할 분담
 - 강다영 | 홈화면, 공지사항, 문의사항, 일정참여
-- 이수연 | 학과위치(지도, 검색기능), 학과제휴(지도)
-- 최수영 | 학과제휴(인스타그램 게시물), 학생회조직(이미지), 과방관리(블로그형식, 댓글기능까지)
+- 이수연 | 학과위치, 학과제휴
+- 최수영 | 학생회조직, 과방관리
 
 ## 초기 실행 방법
 1. pip install -r requirements.txt (필요한 라이브러리 설치)
@@ -14,22 +14,8 @@
 ## 서버 계정
 - 아이디: teamklc
 - 비밀번호: rkdekdud!
-- IP: http://113.198.63.23:8000/
 
-## WSL
-- ssh teamklc@113.198.63.23.8000
-- $ docker ps
-- $ docker-compose up : 서비스 띄우기
-- 깃허브 토큰 사용해서 로그인 후 clone
+## 시연
+- URL: <http://113.198.63.23:8005>
 
-
-### 개인 작업 시
-- <a href="https://git-fork.com/">Fork</a> 다운로드
-- <a href="https://velog.io/@riverallzero/Fork-%EC%9D%B4%EC%9A%A9%ED%95%98%EA%B8%B0">Fork 사용 방법</a>
-- <a href="https://velog.io/@riverallzero/Fork%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-Git-Branch-dcebao11">Branch 사용 방법</a>
-
-### 폼 예제
-- 학생회
-https://docs.google.com/forms/d/e/1FAIpQLSeNQT65_ZMPrLr-50WtP0ZcLRIZp3RnKXPr49raX_oB2nSDgg/viewform?usp=sf_link
-- mbti
-https://docs.google.com/forms/d/e/1FAIpQLSfcArr0TPxUE4_Ubm8LOfRsy4ZvwDBhCY2XTplshoWsgcjElA/viewform?usp=sf_link
+![113 198 63 23_8005_](https://user-images.githubusercontent.com/93754504/208690860-22606df4-6b0d-4784-8f48-fa0ef81911d9.png)
