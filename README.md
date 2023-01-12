@@ -6,6 +6,5 @@
 - 최수영 | 학생회조직, 과방관리
 
 ## 시연
-- URL: <http://113.198.63.23:8005>
 
-![113 198 63 23_8005_](https://user-images.githubusercontent.com/93754504/208690860-22606df4-6b0d-4784-8f48-fa0ef81911d9.png)
+![](https://user-images.githubusercontent.com/93754504/208690860-22606df4-6b0d-4784-8f48-fa0ef81911d9.png)
