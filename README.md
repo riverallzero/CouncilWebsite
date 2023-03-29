@@ -6,7 +6,7 @@
 - 최수영 | 학생회조직, 과방관리
 
 ## 결과
-![Home](https://user-images.githubusercontent.com/93754504/208690860-22606df4-6b0d-4784-8f48-fa0ef81911d9.png)
+<img src = "https://user-images.githubusercontent.com/93754504/208690860-22606df4-6b0d-4784-8f48-fa0ef81911d9.png" width="60%">
 
 <details>
 <summary>발표 슬라이드</summary>
